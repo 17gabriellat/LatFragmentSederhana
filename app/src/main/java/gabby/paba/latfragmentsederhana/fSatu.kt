@@ -57,6 +57,7 @@ class fSatu : Fragment() {
             fragmentTransaction.replace(
                 R.id.fragment_container,
                 fragmentDua)
+            fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
     }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -52,6 +53,21 @@ class fDua : Fragment() {
 
         if(namaDiterima != "")
             _tvHasil.text = "Halo, $namaDiterima! Alamat Anda $alamatDiterima."
+
+        val _btnOpenFDua = view.findViewById<Button>(R.id.btnOpenFDua)
+
+        _btnOpenFDua.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+
+            val fragmentSatu = fSatu()
+
+            fragmentTransaction.replace(
+                R.id.fragment_container,
+                fragmentSatu)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
     }
 
     companion object {
