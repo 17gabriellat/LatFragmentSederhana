@@ -40,6 +40,20 @@ class fSatu : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val _btnOpenFSatu = view.findViewById<Button>(R.id.btnOpenFSatu)
+
+        _btnOpenFSatu.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+
+            val fragmentDua = fDua()
+
+            fragmentTransaction.replace(
+                R.id.fragment_container,
+                fragmentDua)
+            fragmentTransaction.commit()
+        }
     }
 
     companion object {
